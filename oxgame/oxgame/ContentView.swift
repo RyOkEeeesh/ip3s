@@ -7,15 +7,29 @@
 
 import SwiftUI
 
+typealias Player = Bool?
+let x: Player = true
+let o: Player = false
+let empty: Player = nil
+
 struct ContentView: View {
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
-        }
-        .padding()
+		VStack {
+			Text("OXGame")
+			VStack {
+				ForEach(0..<3) {i in
+					HStack {
+						ForEach(0..<3) {i in
+							Button("O") {
+								
+							}
+							.frame(width: 100, height: 100)
+						}
+					}
+				}
+			}
+		}
+		
     }
 }
 
