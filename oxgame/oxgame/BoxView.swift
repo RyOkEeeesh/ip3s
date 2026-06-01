@@ -8,14 +8,15 @@
 import SwiftUI
 
 struct BoxView: View {
-	@State var isX: Bool? = nil;
+	@Binding var isO: Bool?
+    let onClick: () -> Void
     var body: some View {
 		Button {
-			isX = true
+            onClick()
 		} label: {
 			Group {
-				if let isX = isX {
-					Image(systemName: isX ? "xmark" : "circle")
+				if let isO = isO {
+					Image(systemName: isO ? "circle" : "xmark")
 						.resizable()
 						.aspectRatio( contentMode: .fit)
 						.padding(30)
@@ -32,5 +33,7 @@ struct BoxView: View {
 }
 
 #Preview {
-    BoxView()
+    BoxView(
+        isO: .constant(true)
+    ) {}
 }
