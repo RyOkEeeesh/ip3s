@@ -70,7 +70,7 @@ struct ContentView: View {
                         : "Player: "
                      :"Winner: "
                 )
-                if (!isDraw) {
+                if (!isDraw || winner != nil) {
                     Image(systemName: winner ?? isO ? "circle" : "xmark")
                 }
             }
