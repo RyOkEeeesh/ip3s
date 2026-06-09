@@ -18,23 +18,23 @@ let winPattern: [[Int]] = [
     [2, 4, 6]
 ]
 
+typealias Winner = (Bool, [Int])?
+
 struct ContentView: View {
     @State var boxes: [Bool?] = [
         nil, nil, nil,
         nil, nil, nil,
         nil, nil, nil
     ]
-    @State var winner: Bool? = nil
+    @State var winner: Winner = nil
     @State var isO: Bool = true
     
-    func getWinner() -> Bool? {
+    func getWinner() -> Winner {
         for pattern in winPattern {
-            let a = boxes[pattern[0]]
-            let b = boxes[pattern[1]]
-            let c = boxes[pattern[2]]
-
-            if a != nil && a == b && a == c {
-                return a
+            if let a = boxes[pattern[0]],
+               a == boxes[pattern[1]],
+               a == boxes[pattern[2]] {
+                return (a, pattern)
             }
         }
         return nil
@@ -46,7 +46,9 @@ struct ContentView: View {
         }
         boxes[i] = isO
         isO.toggle()
-        winner = getWinner()
+        withAnimation(.easeInOut(duration: 0.15)) {
+            winner = getWinner()
+        }
     }
     
     func reset() {
@@ -62,16 +64,20 @@ struct ContentView: View {
     var body: some View {
         VStack(spacing: 36) {
             Text("OXGame")
+                .font(.largeTitle)
+            Spacer()
             HStack {
                 let isDraw = !boxes.contains(nil)
                 Text(winner == nil
                      ? isDraw
-                        ? "Draw"
-                        : "Player: "
+                     ? "Draw"
+                     : "Player: "
                      :"Winner: "
-                )
+                ).font(.title)
                 if (!isDraw || winner != nil) {
-                    Image(systemName: winner ?? isO ? "circle" : "xmark")
+                    Image(systemName: winner?.0 ?? isO ? "circle" : "xmark")
+                        .resizable()
+                        .frame(width: 30, height: 30)
                 }
             }
             VStack {
@@ -80,7 +86,8 @@ struct ContentView: View {
                         ForEach(0..<3) { j in
                             let idx = i * 3 + j
                             BoxView(
-                                isO: $boxes[idx]
+                                isO: boxes[idx],
+                                isWinLine: winner?.1.contains(idx) ?? false
                             ) {
                                 handleBtnClick(i: idx)
                             }
@@ -92,7 +99,10 @@ struct ContentView: View {
                 reset()
             } label: {
                 Text("Reset")
+                    .font(.title3)
             }
+            .buttonStyle(BorderedButtonStyle())
+            Spacer()
         }
     }
 }

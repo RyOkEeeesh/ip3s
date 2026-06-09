@@ -8,7 +8,9 @@
 import SwiftUI
 
 struct BoxView: View {
-	@Binding var isO: Bool?
+    let isO: Bool?
+    let isWinLine: Bool
+
     let onClick: () -> Void
     var body: some View {
 		Button {
@@ -27,13 +29,18 @@ struct BoxView: View {
 			}
 		}
 		.frame(width: 100, height: 100)
-		.background(Color.yellow)
+        .background(isWinLine ? Color.yellow : Color.clear)
 		.cornerRadius(8)
+        .overlay(
+            RoundedRectangle(cornerRadius: 8)
+                .stroke(Color.gray, lineWidth: 4)
+        )
     }
 }
 
 #Preview {
     BoxView(
-        isO: .constant(true)
+        isO: true,
+        isWinLine: false,
     ) {}
 }
