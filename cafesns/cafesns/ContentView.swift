@@ -2,7 +2,7 @@
 //  ContentView.swift
 //  cafesns
 //
-//  Created by ip3s on 2026/06/30.
+//  Created by kaji on 2026/06/30.
 //
 
 import SwiftUI

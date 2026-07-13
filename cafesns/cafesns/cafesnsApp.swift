@@ -2,7 +2,7 @@
 //  cafesnsApp.swift
 //  cafesns
 //
-//  Created by ip3s on 2026/06/30.
+//  Created by kaji on 2026/06/23.
 //
 
 import SwiftUI
@@ -11,7 +11,7 @@ import SwiftUI
 struct cafesnsApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            HomeView()
         }
     }
 }
