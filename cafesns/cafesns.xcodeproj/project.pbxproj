@@ -6,13 +6,32 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		94FC148030468DDC00FD628D /* FirebaseCore in Frameworks */ = {isa = PBXBuildFile; productRef = 94FC147F30468DDC00FD628D /* FirebaseCore */; };
+		94FC148230468EE100FD628D /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 94FC148130468EE100FD628D /* FirebaseFirestore */; };
+		94FC148430468EEA00FD628D /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 94FC148330468EEA00FD628D /* FirebaseAuth */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
 		9422C16D2FF37EDF0037CEC0 /* cafesns.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = cafesns.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		947704DB30468CD3005EB01F /* Exceptions for "cafesns" folder in "cafesns" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 9422C16C2FF37EDF0037CEC0 /* cafesns */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		9422C16F2FF37EDF0037CEC0 /* cafesns */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				947704DB30468CD3005EB01F /* Exceptions for "cafesns" folder in "cafesns" target */,
+			);
 			path = cafesns;
 			sourceTree = "<group>";
 		};
@@ -23,6 +42,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				94FC148030468DDC00FD628D /* FirebaseCore in Frameworks */,
+				94FC148430468EEA00FD628D /* FirebaseAuth in Frameworks */,
+				94FC148230468EE100FD628D /* FirebaseFirestore in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -33,6 +55,7 @@
 			isa = PBXGroup;
 			children = (
 				9422C16F2FF37EDF0037CEC0 /* cafesns */,
+				94FC147E30468DDC00FD628D /* Frameworks */,
 				9422C16E2FF37EDF0037CEC0 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -43,6 +66,13 @@
 				9422C16D2FF37EDF0037CEC0 /* cafesns.app */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		94FC147E30468DDC00FD628D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -65,6 +95,9 @@
 			);
 			name = cafesns;
 			packageProductDependencies = (
+				94FC147F30468DDC00FD628D /* FirebaseCore */,
+				94FC148130468EE100FD628D /* FirebaseFirestore */,
+				94FC148330468EEA00FD628D /* FirebaseAuth */,
 			);
 			productName = cafesns;
 			productReference = 9422C16D2FF37EDF0037CEC0 /* cafesns.app */;
@@ -258,6 +291,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = cafesns/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -289,6 +323,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = cafesns/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -344,6 +379,24 @@
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		94FC147F30468DDC00FD628D /* FirebaseCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2A01EE253005F10E000AB808 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseCore;
+		};
+		94FC148130468EE100FD628D /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2A01EE253005F10E000AB808 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
+		};
+		94FC148330468EEA00FD628D /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2A01EE253005F10E000AB808 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 9422C1652FF37EDF0037CEC0 /* Project object */;
 }
