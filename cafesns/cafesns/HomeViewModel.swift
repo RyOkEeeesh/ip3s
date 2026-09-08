@@ -6,6 +6,7 @@
 //
 import Combine
 import Foundation
+import FirebaseFirestore
 //投稿
 struct Post :Identifiable{
     var id = UUID()
@@ -13,6 +14,7 @@ struct Post :Identifiable{
     let shop: String?
 }
 class HomeViewModel: ObservableObject{
+	let db = Firestore.firestore()
     @Published var posts:[Post] = [
         Post(
             text:"美味しいです",shop: "key Coffee新宿南口店"),
@@ -21,4 +23,24 @@ class HomeViewModel: ObservableObject{
         
     ]
     
+	func startEventLisner() {
+		db.collection("posts")
+			.addSnapshotListener { QuerySnapshot?, (any Error)? in
+				if let err = Error {
+					
+				}
+				
+				if let querySnapshot = QuerySnapshot {
+					querySnapshot.documentChanges.forEach { change in
+						switch change.type {
+							case .added:
+							case .modified:
+							case .removed:
+						}
+					}
+				}
+				
+				
+			}
+	}
 }
